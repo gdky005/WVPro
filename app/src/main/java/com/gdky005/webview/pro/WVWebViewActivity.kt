@@ -98,7 +98,7 @@ class WVWebViewActivity : ZKBaseActivity() {
     }
 
     override fun initViews(contentView: View) {
-        showBarState(contentView, R.color.white, true)
+//        showBarState(contentView, R.color.white, true)
 //        BarUtils.setStatusBarLightMode(this, false)
         webView = wv_ui_webview
     }
