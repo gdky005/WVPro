@@ -5,15 +5,20 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.net.http.SslError
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.webkit.*
 import androidx.annotation.ColorRes
 import androidx.annotation.RequiresApi
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler
+import com.tencent.smtt.export.external.interfaces.WebResourceError
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest
+import com.tencent.smtt.sdk.WebChromeClient
+import com.tencent.smtt.sdk.WebSettings
+import com.tencent.smtt.sdk.WebView
+import com.tencent.smtt.sdk.WebViewClient
 import com.zkteam.sdk.ZKBase
 import com.zkteam.sdk.base.ZKBaseActivity
 import kotlinx.android.synthetic.main.activity_webview.*
@@ -57,7 +62,8 @@ class WVWebViewActivity : ZKBaseActivity() {
 
         mWebSettings.layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mWebSettings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+//            mWebSettings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+            mWebSettings.mixedContentMode = WebSettings.LOAD_NORMAL
             WebView.setWebContentsDebuggingEnabled(true)
         }
 
@@ -141,7 +147,11 @@ class WVWebViewActivity : ZKBaseActivity() {
             return filterUri(ZKBase.context(), uri)
         }
 
-        override fun onReceivedSslError(view: WebView, handler: SslErrorHandler?, error: SslError) {
+        override fun onReceivedSslError(
+            view: WebView?,
+            handler: SslErrorHandler?,
+            p2: com.tencent.smtt.export.external.interfaces.SslError?
+        ) {
 //            handler.cancel() //super中默认的处理方式，WebView变成空白页
             handler?.proceed()
         }
@@ -198,10 +208,6 @@ class WVWebViewActivity : ZKBaseActivity() {
 
         override fun onReceivedTitle(view: WebView, title: String) {
             super.onReceivedTitle(view, title)
-        }
-
-        override fun onShowCustomView(view: View, callback: WebChromeClient.CustomViewCallback) {
-            super.onShowCustomView(view, callback)
         }
     }
 
