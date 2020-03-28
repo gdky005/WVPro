@@ -12,7 +12,7 @@ class MainActivity : ZKBaseActivity() {
     }
 
     override fun initData(bundle: Bundle?) {
-        val url = "http://47.74.247.185/pad/index.html"
+        val url = "http://www.beijiaofuxue.com/static/pad1/index.html"
         startWebViewActivity(url)
         finish()
     }

@@ -214,4 +214,8 @@ class WVWebViewActivity : ZKBaseActivity() {
             }
         }
     }
+
+    override fun isSwipeBack(): Boolean {
+        return false
+    }
 }
