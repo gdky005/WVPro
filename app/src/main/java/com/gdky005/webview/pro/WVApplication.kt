@@ -12,6 +12,7 @@ class WVApplication : ZKBaseApplication() {
         zkUiManager.setShowGuide(false) // 设置不启用引导页面
         zkUiManager.setMainActivity(SplashActivity::class.java) // 设置进入的主页面
 
+        QbSdk.setDownloadWithoutWifi(true)
         QbSdk.initX5Environment(this, null)
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import com.zkteam.sdk.base.ZKBaseActivity
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : ZKBaseActivity() {
 
@@ -21,6 +22,8 @@ class SplashActivity : ZKBaseActivity() {
     }
 
     override fun initViews(contentView: View) {
-        //function
+        splashBg.setOnClickListener {
+            WVManager.instance.addCount()
+        }
     }
 }

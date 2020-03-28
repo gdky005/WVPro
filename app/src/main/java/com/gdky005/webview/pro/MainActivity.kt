@@ -7,12 +7,19 @@ import com.zkteam.sdk.base.ZKBaseActivity
 import com.zkteam.ui.components.webview.ZKWebViewActivity
 
 class MainActivity : ZKBaseActivity() {
+
+    private var debugUrl = "http://debugtbs.qq.com/"
+    private var url = "http://www.beijiaofuxue.com/static/pad1/index.html"
+
+
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
 
     override fun initData(bundle: Bundle?) {
-        val url = "http://www.beijiaofuxue.com/static/pad1/index.html"
+        if (WVManager.instance.isAddDebug()) {
+            url = debugUrl
+        }
         startWebViewActivity(url)
         finish()
     }
