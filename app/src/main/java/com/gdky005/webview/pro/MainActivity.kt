@@ -33,4 +33,9 @@ class MainActivity : ZKBaseActivity() {
             Intent(this, WVWebViewActivity::class.java)
             .putExtra(ZKWebViewActivity.FLAG_ZK_UI_WEBVIEW_URL, url))
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        WVManager.instance.clearCount()
+    }
 }

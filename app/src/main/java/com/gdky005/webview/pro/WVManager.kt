@@ -2,7 +2,7 @@ package com.gdky005.webview.pro
 
 public class WVManager {
 
-    public var count = 0;
+    private var count = 0
 
     companion object {
         // 双重校验锁式（Double Check)
@@ -20,6 +20,10 @@ public class WVManager {
             return true
         }
         return false
+    }
+
+    public fun clearCount() {
+        count = 0
     }
 
 }
