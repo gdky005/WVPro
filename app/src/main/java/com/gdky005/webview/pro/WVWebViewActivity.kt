@@ -80,7 +80,7 @@ class WVWebViewActivity : ZKBaseActivity() {
         val fontSize = res.getDimension(R.dimen.sp_14).toInt()
         mWebSettings.defaultFontSize = fontSize
         //其他细节操作
-        mWebSettings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK //关闭webview中缓存
+        mWebSettings.cacheMode = WebSettings.LOAD_DEFAULT //默认
         mWebSettings.allowFileAccess = true //设置可以访问文件
         mWebSettings.javaScriptCanOpenWindowsAutomatically = true //支持通过JS打开新窗口
         mWebSettings.loadsImagesAutomatically = true //支持自动加载图片
