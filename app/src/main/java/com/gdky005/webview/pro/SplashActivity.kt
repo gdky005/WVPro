@@ -18,7 +18,7 @@ class SplashActivity : ZKBaseActivity() {
         Handler().postDelayed({
             startActivity(Intent(mContext, MainActivity::class.java))
             finish()
-        }, 2000)
+        }, 5000)
     }
 
     override fun initViews(contentView: View) {

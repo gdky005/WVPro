@@ -9,7 +9,7 @@ import com.zkteam.ui.components.webview.ZKWebViewActivity
 class MainActivity : ZKBaseActivity() {
 
     private var debugUrl = "http://debugtbs.qq.com/"
-    private var url = "http://www.beijiaofuxue.com/static/pad1/index.html"
+    private var url = "http://www.beijiaofuxue.com/static/pad2/index.html"
 
 
     override fun getLayoutId(): Int {
